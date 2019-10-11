@@ -2,7 +2,7 @@
     "name": "Universidad_Academica",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "servidor.js",
     "scripts": {
         "dev": "nodemon src/servidor.js"
 
