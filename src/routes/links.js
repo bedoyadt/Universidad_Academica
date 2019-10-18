@@ -23,6 +23,7 @@ router.post('/add', async(req, res) => {
     };
     //console.log(newLink);
     await pool.query('INSERT INTO links set ?', [newLink]);
+    req.flash('success', 'LINKS Guardado Corretamente');
     res.redirect('/links');
 });
 //pra listar
@@ -35,6 +36,7 @@ router.get('/', async(req, res) => {
 router.get('/delede/:id', async(req, res) => {
     const { id } = req.params;
     await pool.query('DELETE FROM links WHERE ID = ?', [id]);
+    req.flash('success', 'LINKS Borrado Corretamente');
     res.redirect('/links');
 });
 //editar
@@ -53,6 +55,7 @@ router.post('/edit/:id', async(req, res) => {
         description
     };
     await pool.query('UPDATE links set ? WHERE id = ?', [newLink, id]);
+    req.flash('success', 'LINKS Editado Corretamente');
     res.redirect('/links');
 });
 
